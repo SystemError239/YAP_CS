@@ -1,11 +1,11 @@
-//проверка пользовательского ввода
+//РїСЂРѕРІРµСЂРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РІРІРѕРґР°
 class NumberSet
 {
     protected int num1;
     protected int num2;
     protected int num3;
 
-    // Конструктор для инициализации полей
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РїРѕР»РµР№
     public NumberSet(int a, int b, int c)
     {
         num1 = a;
@@ -13,7 +13,7 @@ class NumberSet
         num3 = c;
     }
 
-    // Конструктор копирования
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
     public NumberSet(NumberSet other)
     {
         num1 = other.num1;
@@ -21,7 +21,7 @@ class NumberSet
         num3 = other.num3;
     }
 
-    // Вычисление минимальной последней цифры среди полей
+    // Р’С‹С‡РёСЃР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕР№ РїРѕСЃР»РµРґРЅРµР№ С†РёС„СЂС‹ СЃСЂРµРґРё РїРѕР»РµР№
     public int GetMinLastDigit()
     {
         int last1 = Math.Abs(num1) % 10;
@@ -30,7 +30,7 @@ class NumberSet
         return Math.Min(last1, Math.Min(last2, last3));
     }
 
-    // Переопределение метода ToString() для формирования строки из полей
+    // РџРµСЂРµРѕРїСЂРµРґРµР»РµРЅРёРµ РјРµС‚РѕРґР° ToString() РґР»СЏ С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ СЃС‚СЂРѕРєРё РёР· РїРѕР»РµР№
     public override string ToString()
     {
         return $"{num1}, {num2}, {num3}";
