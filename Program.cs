@@ -5,28 +5,28 @@ class Program
     {
         NumberSet set1 = null;
         PointInSpace point = null;
-
+        
         while (true)
         {
-            Console.WriteLine("\nВыберите действие:");
-            Console.WriteLine("1. Создать массив из трех чисел");
-            Console.WriteLine("2. Вывести массив из трех чисел");
-            Console.WriteLine("3. Найти минимальную последнюю цифру");
-            Console.WriteLine("4. Создать точку в пространстве");
-            Console.WriteLine("5. Вывести точку в пространстве");
-            Console.WriteLine("6. Найти расстояние до начала координат");
-            Console.WriteLine("7. Сместить точку в пространстве");
-            Console.WriteLine("8. Создать копию объекта");
-            Console.WriteLine("9. Выход");
+            Console.WriteLine("\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:");
+            Console.WriteLine("1. РЎРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ РёР· С‚СЂРµС… С‡РёСЃРµР»");
+            Console.WriteLine("2. Р’С‹РІРµСЃС‚Рё РјР°СЃСЃРёРІ РёР· С‚СЂРµС… С‡РёСЃРµР»");
+            Console.WriteLine("3. РќР°Р№С‚Рё РјРёРЅРёРјР°Р»СЊРЅСѓСЋ РїРѕСЃР»РµРґРЅСЋСЋ С†РёС„СЂСѓ");
+            Console.WriteLine("4. РЎРѕР·РґР°С‚СЊ С‚РѕС‡РєСѓ РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ");
+            Console.WriteLine("5. Р’С‹РІРµСЃС‚Рё С‚РѕС‡РєСѓ РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ");
+            Console.WriteLine("6. РќР°Р№С‚Рё СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚");
+            Console.WriteLine("7. РЎРјРµСЃС‚РёС‚СЊ С‚РѕС‡РєСѓ РІ РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ");
+            Console.WriteLine("8. РЎРѕР·РґР°С‚СЊ РєРѕРїРёСЋ РѕР±СЉРµРєС‚Р°");
+            Console.WriteLine("9. Р’С‹С…РѕРґ");
 
-            int choice = ValidInput.IntVal("Введите номер действия: ");
+            int choice = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РґРµР№СЃС‚РІРёСЏ: ");
 
             switch (choice)
             {
                 case 1:
-                    int a = ValidInput.IntVal("Введите первое число: ");
-                    int b = ValidInput.IntVal("Введите второе число: ");
-                    int c = ValidInput.IntVal("Введите третье число: ");
+                    int a = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ: ");
+                    int b = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ: ");
+                    int c = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ С‚СЂРµС‚СЊРµ С‡РёСЃР»Рѕ: ");
                     set1 = new NumberSet(a, b, c);
                     break;
 
@@ -37,25 +37,25 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
 
                 case 3:
                     if (set1 != null)
                     {
-                        Console.WriteLine("Минимальная последняя цифра: " + set1.GetMinLastDigit().ToString());
+                        Console.WriteLine("РњРёРЅРёРјР°Р»СЊРЅР°СЏ РїРѕСЃР»РµРґРЅСЏСЏ С†РёС„СЂР°: " + set1.GetMinLastDigit().ToString());
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
 
                 case 4:
-                    int x = ValidInput.IntVal("Введите X: ");
-                    int y = ValidInput.IntVal("Введите Y: ");
-                    int z = ValidInput.IntVal("Введите Z: ");
+                    int x = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ X: ");
+                    int y = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ Y: ");
+                    int z = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ Z: ");
                     point = new PointInSpace(x, y, z);
                     break;
 
@@ -66,44 +66,44 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
 
                 case 6:
                     if (point != null)
                     {
-                        Console.WriteLine("Расстояние до начала координат: " + point.DistanceToOrigin().ToString());
+                        Console.WriteLine("Р Р°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚: " + point.DistanceToOrigin().ToString());
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
 
                 case 7:
                     if (point != null)
                     {
-                        int dx = ValidInput.IntVal("Введите смещение по X: ");
-                        int dy = ValidInput.IntVal("Введите смещение по Y: ");
-                        int dz = ValidInput.IntVal("Введите смещение по Z: ");
+                        int dx = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ СЃРјРµС‰РµРЅРёРµ РїРѕ X: ");
+                        int dy = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ СЃРјРµС‰РµРЅРёРµ РїРѕ Y: ");
+                        int dz = ValidInput.IntVal("Р’РІРµРґРёС‚Рµ СЃРјРµС‰РµРЅРёРµ РїРѕ Z: ");
                         point.SDVG(dx, dy, dz);
-                        Console.WriteLine("Новые координаты " + point.ToString());
+                        Console.WriteLine("РќРѕРІС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ " + point.ToString());
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
                 case 8:
                     if (set1 != null)
                     {
-                        NumberSet setCopy = new NumberSet(set1);  // Создаем копию
-                        Console.WriteLine("Копия создана: " + setCopy.ToString());
+                        NumberSet setCopy = new NumberSet(set1);  // РЎРѕР·РґР°РµРј РєРѕРїРёСЋ
+                        Console.WriteLine("РљРѕРїРёСЏ СЃРѕР·РґР°РЅР°: " + setCopy.ToString());
                     }
                     else
                     {
-                        Console.WriteLine("Объект не создан");
+                        Console.WriteLine("РћР±СЉРµРєС‚ РЅРµ СЃРѕР·РґР°РЅ");
                     }
                     break;
 
@@ -111,7 +111,7 @@ class Program
                     return;
 
                 default:
-                    Console.WriteLine("Неверный ввод, попробуйте снова.");
+                    Console.WriteLine("РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.");
                     break;
             }
 
