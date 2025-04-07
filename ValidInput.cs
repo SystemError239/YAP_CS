@@ -8,7 +8,7 @@ class ValidInput
             Console.Write(prin);
             if (int.TryParse(Console.ReadLine(), out value))
                 return value;
-            Console.WriteLine("Ошибка! Введите корректное целое число.");
+            Console.WriteLine("РћС€РёР±РєР°! Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅРѕРµ С†РµР»РѕРµ С‡РёСЃР»Рѕ.");
         }
     }
 }
