@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfToy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Toy>
+    <Name>Конструктор 1</Name>
+    <Price>3568.74</Price>
+  </Toy>
+  <Toy>
+    <Name>Игрушка 2</Name>
+    <Price>1843.76</Price>
+  </Toy>
+  <Toy>
+    <Name>Конструктор 3</Name>
+    <Price>3431.37</Price>
+  </Toy>
+  <Toy>
+    <Name>Игрушка 4</Name>
+    <Price>1185.42</Price>
+  </Toy>
+  <Toy>
+    <Name>Конструктор 5</Name>
+    <Price>2301.23</Price>
+  </Toy>
+  <Toy>
+    <Name>Игрушка 6</Name>
+    <Price>1691.45</Price>
+  </Toy>
+</ArrayOfToy>

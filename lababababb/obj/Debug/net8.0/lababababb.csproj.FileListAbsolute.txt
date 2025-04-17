@@ -1,0 +1,14 @@
+C:\Users\Тамара\source\repos\lababababb\bin\Debug\net8.0\lababababb.exe
+C:\Users\Тамара\source\repos\lababababb\bin\Debug\net8.0\lababababb.deps.json
+C:\Users\Тамара\source\repos\lababababb\bin\Debug\net8.0\lababababb.runtimeconfig.json
+C:\Users\Тамара\source\repos\lababababb\bin\Debug\net8.0\lababababb.dll
+C:\Users\Тамара\source\repos\lababababb\bin\Debug\net8.0\lababababb.pdb
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.AssemblyInfoInputs.cache
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.AssemblyInfo.cs
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.csproj.CoreCompileInputs.cache
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.dll
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\refint\lababababb.dll
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.pdb
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\lababababb.genruntimeconfig.cache
+C:\Users\Тамара\source\repos\lababababb\obj\Debug\net8.0\ref\lababababb.dll
