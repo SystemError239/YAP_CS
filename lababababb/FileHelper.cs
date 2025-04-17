@@ -58,10 +58,10 @@ public static class FileHelper
         var lines = new[]
         {
             "Hello World!",
-            "Я русский.",
+            "РЇ СЂСѓСЃСЃРєРёР№.",
             "1234567890",
             "Eng.",
-            "Тестовая строка."
+            "РўРµСЃС‚РѕРІР°СЏ СЃС‚СЂРѕРєР°."
         };
 
         File.WriteAllLines(path, lines);
@@ -85,7 +85,7 @@ public static class FileHelper
 
         for (int i = 0; i < count; i++)
         {
-            string name = i % 2 == 0 ? $"Конструктор {i + 1}" : $"Игрушка {i + 1}";
+            string name = i % 2 == 0 ? $"РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ {i + 1}" : $"РРіСЂСѓС€РєР° {i + 1}";
             double price = rnd.Next(500, 5001) + rnd.NextDouble();
 
             toys.Add(new Toy
