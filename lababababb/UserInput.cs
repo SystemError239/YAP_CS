@@ -7,17 +7,17 @@ public static class UserInput
             Console.Write(message);
             string? input = Console.ReadLine()?.Trim().ToLower();
 
-            if (input == "y" || input == "д")
+            if (input == "y" || input == "Рґ")
             {
                 return true;
             }
-            else if (input == "n" || input == "н")
+            else if (input == "n" || input == "РЅ")
             {
                 return false;
             }
             else
             {
-                Console.WriteLine("Некорректный ввод. Введите 'д' или 'н' (или 'y' / 'n').");
+                Console.WriteLine("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ. Р’РІРµРґРёС‚Рµ 'Рґ' РёР»Рё 'РЅ' (РёР»Рё 'y' / 'n').");
             }
         }
     }
@@ -33,7 +33,7 @@ public static class UserInput
                 return result;
             }
 
-            Console.WriteLine("Ошибка ввода. Введите целое число.");
+            Console.WriteLine("РћС€РёР±РєР° РІРІРѕРґР°. Р’РІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ.");
         }
     }
 
@@ -41,6 +41,6 @@ public static class UserInput
     {
         Console.Write(message);
         var input = Console.ReadLine()?.Trim().ToLower();
-        return input == "д" || input == "y" || input == "yes";
+        return input == "Рґ" || input == "y" || input == "yes";
     }
 }
