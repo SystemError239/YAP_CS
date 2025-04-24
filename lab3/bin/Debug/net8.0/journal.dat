@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStudentRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StudentRecord>
+    <LastName>Хулапов</LastName>
+    <FirstName>Ярик</FirstName>
+    <Grade>11</Grade>
+    <AverageScore>5</AverageScore>
+    <HasDebts>false</HasDebts>
+  </StudentRecord>
+  <StudentRecord>
+    <LastName>Киряков</LastName>
+    <FirstName>Никлаус</FirstName>
+    <Grade>5</Grade>
+    <AverageScore>2</AverageScore>
+    <HasDebts>false</HasDebts>
+  </StudentRecord>
+  <StudentRecord>
+    <LastName>Родачев</LastName>
+    <FirstName>Власони</FirstName>
+    <Grade>9</Grade>
+    <AverageScore>5</AverageScore>
+    <HasDebts>false</HasDebts>
+  </StudentRecord>
+  <StudentRecord>
+    <LastName>Васильев</LastName>
+    <FirstName>Санечка</FirstName>
+    <Grade>1</Grade>
+    <AverageScore>0</AverageScore>
+    <HasDebts>true</HasDebts>
+  </StudentRecord>
+  <StudentRecord>
+    <LastName>Тралалеро</LastName>
+    <FirstName>Тралала</FirstName>
+    <Grade>7</Grade>
+    <AverageScore>4.6</AverageScore>
+    <HasDebts>false</HasDebts>
+  </StudentRecord>
+  <StudentRecord>
+    <LastName>Фрули</LastName>
+    <FirstName>Фрула</FirstName>
+    <Grade>11</Grade>
+    <AverageScore>2.27</AverageScore>
+    <HasDebts>true</HasDebts>
+  </StudentRecord>
+</ArrayOfStudentRecord>
