@@ -6,25 +6,25 @@ using System.Text;
 using System.Xml.Serialization;
 
 /// <summary>
-/// Предоставляет функциональность для работы с базой данных записей студентов,
-/// хранящейся в бинарном файле в формате XML.
+/// РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С… Р·Р°РїРёСЃРµР№ СЃС‚СѓРґРµРЅС‚РѕРІ,
+/// С…СЂР°РЅСЏС‰РµР№СЃСЏ РІ Р±РёРЅР°СЂРЅРѕРј С„Р°Р№Р»Рµ РІ С„РѕСЂРјР°С‚Рµ XML.
 /// </summary>
 public static class JournalManager
 {
     /// <summary>
-    /// Путь к файлу базы данных.
+    /// РџСѓС‚СЊ Рє С„Р°Р№Р»Сѓ Р±Р°Р·С‹ РґР°РЅРЅС‹С….
     /// </summary>
     private const string _filePath = "journal.dat";
 
     /// <summary>
-    /// Загружает базу данных из файла XML в список.
+    /// Р—Р°РіСЂСѓР¶Р°РµС‚ Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р° XML РІ СЃРїРёСЃРѕРє.
     /// </summary>
-    /// <param name="journal">Список, куда будут загружены записи студентов.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє, РєСѓРґР° Р±СѓРґСѓС‚ Р·Р°РіСЂСѓР¶РµРЅС‹ Р·Р°РїРёСЃРё СЃС‚СѓРґРµРЅС‚РѕРІ.</param>
     public static void readDatabase(List<StudentRecord> journal)
     {
         if (!File.Exists(_filePath))
         {
-            Console.WriteLine("Файл не найден.");
+            Console.WriteLine("Р¤Р°Р№Р» РЅРµ РЅР°Р№РґРµРЅ.");
             return;
         }
 
@@ -35,27 +35,27 @@ public static class JournalManager
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<StudentRecord>));
 
-                // Десериализация XML-данных в список
+                // Р”РµСЃРµСЂРёР°Р»РёР·Р°С†РёСЏ XML-РґР°РЅРЅС‹С… РІ СЃРїРёСЃРѕРє
                 List<StudentRecord> loaded = (List<StudentRecord>)serializer.Deserialize(reader);
 
-                // Обновляем текущий список
+                // РћР±РЅРѕРІР»СЏРµРј С‚РµРєСѓС‰РёР№ СЃРїРёСЃРѕРє
                 journal.Clear();
                 journal.AddRange(loaded);
 
-                Console.WriteLine("База данных успешно загружена.");
+                Console.WriteLine("Р‘Р°Р·Р° РґР°РЅРЅС‹С… СѓСЃРїРµС€РЅРѕ Р·Р°РіСЂСѓР¶РµРЅР°.");
             }
         }
         catch (Exception ex)
         {
-            // В случае ошибки выводим сообщение
-            Console.WriteLine("Ошибка при загрузке базы данных: " + ex.Message);
+            // Р’ СЃР»СѓС‡Р°Рµ РѕС€РёР±РєРё РІС‹РІРѕРґРёРј СЃРѕРѕР±С‰РµРЅРёРµ
+            Console.WriteLine("РћС€РёР±РєР° РїСЂРё Р·Р°РіСЂСѓР·РєРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С…: " + ex.Message);
         }
     }
 
     /// <summary>
-    /// Сохраняет текущий список студентов в XML-файл.
+    /// РЎРѕС…СЂР°РЅСЏРµС‚ С‚РµРєСѓС‰РёР№ СЃРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ РІ XML-С„Р°Р№Р».
     /// </summary>
-    /// <param name="journal">Список записей студентов для сохранения.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє Р·Р°РїРёСЃРµР№ СЃС‚СѓРґРµРЅС‚РѕРІ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ.</param>
     public static void saveDatabase(List<StudentRecord> journal)
     {
         try
@@ -65,91 +65,91 @@ public static class JournalManager
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<StudentRecord>));
 
-                // Сохраняем список в XML в файл
+                // РЎРѕС…СЂР°РЅСЏРµРј СЃРїРёСЃРѕРє РІ XML РІ С„Р°Р№Р»
                 serializer.Serialize(writer, journal);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Ошибка при сохранении базы данных: " + ex.Message);
+            Console.WriteLine("РћС€РёР±РєР° РїСЂРё СЃРѕС…СЂР°РЅРµРЅРёРё Р±Р°Р·С‹ РґР°РЅРЅС‹С…: " + ex.Message);
         }
     }
 
     /// <summary>
-    /// Отображает все записи студентов в консоли.
+    /// РћС‚РѕР±СЂР°Р¶Р°РµС‚ РІСЃРµ Р·Р°РїРёСЃРё СЃС‚СѓРґРµРЅС‚РѕРІ РІ РєРѕРЅСЃРѕР»Рё.
     /// </summary>
-    /// <param name="journal">Список записей для отображения.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє Р·Р°РїРёСЃРµР№ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ.</param>
     public static void viewDatabase(List<StudentRecord> journal)
     {
         if (journal.Count == 0)
         {
-            Console.WriteLine("Журнал пуст.");
+            Console.WriteLine("Р–СѓСЂРЅР°Р» РїСѓСЃС‚.");
             return;
         }
 
         foreach (StudentRecord record in journal)
         {
-            // Печать каждой записи в формате, заданном в ToString()
+            // РџРµС‡Р°С‚СЊ РєР°Р¶РґРѕР№ Р·Р°РїРёСЃРё РІ С„РѕСЂРјР°С‚Рµ, Р·Р°РґР°РЅРЅРѕРј РІ ToString()
             Console.WriteLine(record.ToString());
         }
     }
 
     /// <summary>
-    /// Добавляет новую запись студента в журнал, запрашивая данные у пользователя.
+    /// Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІСѓСЋ Р·Р°РїРёСЃСЊ СЃС‚СѓРґРµРЅС‚Р° РІ Р¶СѓСЂРЅР°Р», Р·Р°РїСЂР°С€РёРІР°СЏ РґР°РЅРЅС‹Рµ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ.
     /// </summary>
-    /// <param name="journal">Список, куда будет добавлена новая запись.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє, РєСѓРґР° Р±СѓРґРµС‚ РґРѕР±Р°РІР»РµРЅР° РЅРѕРІР°СЏ Р·Р°РїРёСЃСЊ.</param>
     public static void addRecord(List<StudentRecord> journal)
     {
-        // Считываем данные у пользователя
-        Console.Write("Фамилия: ");
+        // РЎС‡РёС‚С‹РІР°РµРј РґР°РЅРЅС‹Рµ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+        Console.Write("Р¤Р°РјРёР»РёСЏ: ");
         string lastName = Console.ReadLine();
 
-        Console.Write("Имя: ");
+        Console.Write("РРјСЏ: ");
         string firstName = Console.ReadLine();
 
-        // Ввод с проверкой
-        int grade = readInt("Класс (1-11): ", 1, 11);
-        double averageScore = readDouble("Средний балл (0-5): ", 0, 5);
+        // Р’РІРѕРґ СЃ РїСЂРѕРІРµСЂРєРѕР№
+        int grade = readInt("РљР»Р°СЃСЃ (1-11): ", 1, 11);
+        double averageScore = readDouble("РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» (0-5): ", 0, 5);
 
-        Console.Write("Есть ли долги (д/н): ");
-        bool hasDebts = Console.ReadLine()?.ToLower() == "д";
+        Console.Write("Р•СЃС‚СЊ Р»Рё РґРѕР»РіРё (Рґ/РЅ): ");
+        bool hasDebts = Console.ReadLine()?.ToLower() == "Рґ";
 
-        // Добавляем запись
+        // Р”РѕР±Р°РІР»СЏРµРј Р·Р°РїРёСЃСЊ
         journal.Add(new StudentRecord(lastName, firstName, grade, averageScore, hasDebts));
-        Console.WriteLine("Запись добавлена.");
+        Console.WriteLine("Р—Р°РїРёСЃСЊ РґРѕР±Р°РІР»РµРЅР°.");
     }
 
     /// <summary>
-    /// Удаляет все записи студентов с заданной фамилией.
+    /// РЈРґР°Р»СЏРµС‚ РІСЃРµ Р·Р°РїРёСЃРё СЃС‚СѓРґРµРЅС‚РѕРІ СЃ Р·Р°РґР°РЅРЅРѕР№ С„Р°РјРёР»РёРµР№.
     /// </summary>
-    /// <param name="journal">Список, из которого удаляются записи.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє, РёР· РєРѕС‚РѕСЂРѕРіРѕ СѓРґР°Р»СЏСЋС‚СЃСЏ Р·Р°РїРёСЃРё.</param>
     public static void deleteRecordByLastName(List<StudentRecord> journal)
     {
-        Console.Write("Введите фамилию для удаления: ");
+        Console.Write("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ");
         string lastName = Console.ReadLine();
 
-        // Удаляем записи по фамилии, игнорируя регистр
+        // РЈРґР°Р»СЏРµРј Р·Р°РїРёСЃРё РїРѕ С„Р°РјРёР»РёРё, РёРіРЅРѕСЂРёСЂСѓСЏ СЂРµРіРёСЃС‚СЂ
         int removed = journal.RemoveAll(r => r.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase));
 
         if (removed > 0)
         {
-            Console.WriteLine($"Удалено записей: {removed}");
+            Console.WriteLine($"РЈРґР°Р»РµРЅРѕ Р·Р°РїРёСЃРµР№: {removed}");
             return;
         }
 
-        Console.WriteLine("Записи с такой фамилией не найдены.");
+        Console.WriteLine("Р—Р°РїРёСЃРё СЃ С‚Р°РєРѕР№ С„Р°РјРёР»РёРµР№ РЅРµ РЅР°Р№РґРµРЅС‹.");
     }
 
     /// <summary>
-    /// Запрос: выводит всех студентов со средним баллом выше 4.5.
+    /// Р—Р°РїСЂРѕСЃ: РІС‹РІРѕРґРёС‚ РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ СЃРѕ СЃСЂРµРґРЅРёРј Р±Р°Р»Р»РѕРј РІС‹С€Рµ 4.5.
     /// </summary>
-    /// <param name="journal">Список студентов.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ.</param>
     public static void query1(List<StudentRecord> journal)
     {
-        // Отбор учеников со средним баллом выше 4.5
+        // РћС‚Р±РѕСЂ СѓС‡РµРЅРёРєРѕРІ СЃРѕ СЃСЂРµРґРЅРёРј Р±Р°Р»Р»РѕРј РІС‹С€Рµ 4.5
         List<StudentRecord> excellent = journal.Where(r => r.AverageScore > 4.5).ToList();
 
-        Console.WriteLine("\nОтличники:");
+        Console.WriteLine("\nРћС‚Р»РёС‡РЅРёРєРё:");
         foreach (StudentRecord record in excellent)
         {
             Console.WriteLine(record.ToString());
@@ -157,15 +157,15 @@ public static class JournalManager
     }
 
     /// <summary>
-    /// Запрос: выводит всех студентов, у которых есть долги.
+    /// Р—Р°РїСЂРѕСЃ: РІС‹РІРѕРґРёС‚ РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РµСЃС‚СЊ РґРѕР»РіРё.
     /// </summary>
-    /// <param name="journal">Список студентов.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ.</param>
     public static void query2(List<StudentRecord> journal)
     {
-        // Отбор учеников с долгами
+        // РћС‚Р±РѕСЂ СѓС‡РµРЅРёРєРѕРІ СЃ РґРѕР»РіР°РјРё
         List<StudentRecord> withDebts = journal.Where(r => r.HasDebts).ToList();
 
-        Console.WriteLine("\nУченики с долгами:");
+        Console.WriteLine("\nРЈС‡РµРЅРёРєРё СЃ РґРѕР»РіР°РјРё:");
         foreach (StudentRecord record in withDebts)
         {
             Console.WriteLine(record.ToString());
@@ -173,40 +173,40 @@ public static class JournalManager
     }
 
     /// <summary>
-    /// Запрос: вычисляет средний балл студентов по заданному классу.
+    /// Р—Р°РїСЂРѕСЃ: РІС‹С‡РёСЃР»СЏРµС‚ СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» СЃС‚СѓРґРµРЅС‚РѕРІ РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РєР»Р°СЃСЃСѓ.
     /// </summary>
-    /// <param name="journal">Список студентов.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ.</param>
     public static void query3(List<StudentRecord> journal)
     {
-        int grade = readInt("Введите номер класса для расчёта среднего балла: ", 1, 11);
+        int grade = readInt("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РєР»Р°СЃСЃР° РґР»СЏ СЂР°СЃС‡С‘С‚Р° СЃСЂРµРґРЅРµРіРѕ Р±Р°Р»Р»Р°: ", 1, 11);
 
-        // Отбираем всех учеников конкретного класса
+        // РћС‚Р±РёСЂР°РµРј РІСЃРµС… СѓС‡РµРЅРёРєРѕРІ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РєР»Р°СЃСЃР°
         List<StudentRecord> filtered = journal.Where(r => r.Grade == grade).ToList();
 
         if (filtered.Count == 0)
         {
-            Console.WriteLine("В данном классе нет записей.");
+            Console.WriteLine("Р’ РґР°РЅРЅРѕРј РєР»Р°СЃСЃРµ РЅРµС‚ Р·Р°РїРёСЃРµР№.");
             return;
         }
 
-        // Считаем средний балл в отобранных записях
+        // РЎС‡РёС‚Р°РµРј СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» РІ РѕС‚РѕР±СЂР°РЅРЅС‹С… Р·Р°РїРёСЃСЏС…
         double average = filtered.Average(r => r.AverageScore);
-        Console.WriteLine($"Средний балл в классе {grade}: {average:F2}");
+        Console.WriteLine($"РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» РІ РєР»Р°СЃСЃРµ {grade}: {average:F2}");
     }
 
     /// <summary>
-    /// Запрос: выводит количество студентов без долгов.
+    /// Р—Р°РїСЂРѕСЃ: РІС‹РІРѕРґРёС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ Р±РµР· РґРѕР»РіРѕРІ.
     /// </summary>
-    /// <param name="journal">Список студентов.</param>
+    /// <param name="journal">РЎРїРёСЃРѕРє СЃС‚СѓРґРµРЅС‚РѕРІ.</param>
     public static void query4(List<StudentRecord> journal)
     {
-        // Считаем всех без долгов
+        // РЎС‡РёС‚Р°РµРј РІСЃРµС… Р±РµР· РґРѕР»РіРѕРІ
         int count = journal.Count(r => !r.HasDebts);
-        Console.WriteLine($"Количество учеников без долгов: {count}");
+        Console.WriteLine($"РљРѕР»РёС‡РµСЃС‚РІРѕ СѓС‡РµРЅРёРєРѕРІ Р±РµР· РґРѕР»РіРѕРІ: {count}");
     }
 
     /// <summary>
-    /// Считывает целое число в указанном диапазоне.
+    /// РЎС‡РёС‚С‹РІР°РµС‚ С†РµР»РѕРµ С‡РёСЃР»Рѕ РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ.
     /// </summary>
     private static int readInt(string prompt, int min, int max)
     {
@@ -222,7 +222,7 @@ public static class JournalManager
     }
 
     /// <summary>
-    /// Считывает число с плавающей точкой в указанном диапазоне.
+    /// РЎС‡РёС‚С‹РІР°РµС‚ С‡РёСЃР»Рѕ СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ РІ СѓРєР°Р·Р°РЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ.
     /// </summary>
     private static double readDouble(string prompt, double min, double max)
     {
