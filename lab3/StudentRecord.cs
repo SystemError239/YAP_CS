@@ -2,64 +2,83 @@ using System;
 
 /// <summary>
 /// Представляет запись об ученике в журнале.
-/// Содержит ФИО, номер класса, средний балл и информацию о наличии долгов.
 /// </summary>
 [Serializable]
 public class StudentRecord
 {
+    private string _lastName;
+    private string _firstName;
+    private int _grade;
+    private double _averageScore;
+    private bool _hasDebts;
+
     /// <summary>
     /// Фамилия ученика.
     /// </summary>
-    public string LastName { get; set; }
+    public string LastName
+    {
+        get { return _lastName; }
+        set { _lastName = value; }
+    }
 
     /// <summary>
     /// Имя ученика.
     /// </summary>
-    public string FirstName { get; set; }
+    public string FirstName
+    {
+        get { return _firstName; }
+        set { _firstName = value; }
+    }
 
     /// <summary>
-    /// Класс ученика (от 1 до 11).
+    /// Номер класса ученика.
     /// </summary>
-    public int Grade { get; set; }
+    public int Grade
+    {
+        get { return _grade; }
+        set { _grade = value; }
+    }
 
     /// <summary>
     /// Средний балл ученика.
     /// </summary>
-    public double AverageScore { get; set; }
+    public double AverageScore
+    {
+        get { return _averageScore; }
+        set { _averageScore = value; }
+    }
 
     /// <summary>
-    /// Наличие долгов у ученика (true — есть долги, false — нет долгов).
+    /// Наличие долгов у ученика.
     /// </summary>
-    public bool HasDebts { get; set; }
+    public bool HasDebts
+    {
+        get { return _hasDebts; }
+        set { _hasDebts = value; }
+    }
 
     /// <summary>
-    /// Пустой конструктор, необходимый для работы XmlSerializer.
+    /// Пустой конструктор для сериализации.
     /// </summary>
     public StudentRecord()
     {
     }
 
     /// <summary>
-    /// Создаёт экземпляр записи об ученике.
+    /// Создаёт новый объект записи об ученике.
     /// </summary>
-    /// <param name="lastName">Фамилия</param>
-    /// <param name="firstName">Имя</param>
-    /// <param name="grade">Класс</param>
-    /// <param name="averageScore">Средний балл</param>
-    /// <param name="hasDebts">Наличие долгов</param>
     public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
     {
-        LastName = lastName;
-        FirstName = firstName;
-        Grade = grade;
-        AverageScore = averageScore;
-        HasDebts = hasDebts;
+        _lastName = lastName;
+        _firstName = firstName;
+        _grade = grade;
+        _averageScore = averageScore;
+        _hasDebts = hasDebts;
     }
 
     /// <summary>
-    /// Возвращает строковое представление записи.
+    /// Возвращает строковое представление записи об ученике.
     /// </summary>
-    /// <returns>Фамилия, имя, класс, средний балл и информация о долгах.</returns>
     public override string ToString()
     {
         return $"{LastName} {FirstName}, класс {Grade}, ср. балл: {AverageScore:F2}, долги: {(HasDebts ? "есть" : "нет")}";
