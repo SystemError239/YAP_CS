@@ -140,12 +140,12 @@ public static class JournalManager
         Console.WriteLine("Записи с такой фамилией не найдены.");
     }
 
-    /// <summary>
-/// Запрос: выводит всех студентов со средним баллом выше 4.5.
+/// <summary>
+/// Выводит всех учеников со средним баллом выше 4.5.
 /// </summary>
+/// <param name="journal">Список всех записей учеников.</param>
 public static void query1(List<StudentRecord> journal)
 {
-    // Выбираем всех, у кого средний балл больше 4.5
     var excellent =
         from student in journal
         where student.AverageScore > 4.5
@@ -158,12 +158,13 @@ public static void query1(List<StudentRecord> journal)
     }
 }
 
+
 /// <summary>
-/// Запрос: выводит всех студентов, у которых есть долги.
+/// Выводит всех учеников, у которых есть долги.
 /// </summary>
+/// <param name="journal">Список всех записей учеников.</param>
 public static void query2(List<StudentRecord> journal)
 {
-    // Отбираем учеников с долгами
     var withDebts =
         from student in journal
         where student.HasDebts
@@ -175,15 +176,14 @@ public static void query2(List<StudentRecord> journal)
         Console.WriteLine(record.ToString());
     }
 }
-
 /// <summary>
-/// Запрос: вычисляет средний балл студентов по заданному классу.
+/// Вычисляет и выводит средний балл учеников указанного класса.
 /// </summary>
+/// <param name="journal">Список всех записей учеников.</param>
 public static void query3(List<StudentRecord> journal)
 {
     int grade = readInt("Введите номер класса для расчёта среднего балла: ", 1, 11);
 
-    // Отбираем учеников заданного класса
     var filtered =
         from student in journal
         where student.Grade == grade
@@ -195,14 +195,14 @@ public static void query3(List<StudentRecord> journal)
         return;
     }
 
-    // Считаем средний балл
     double average = filtered.Average(s => s.AverageScore);
     Console.WriteLine($"Средний балл в классе {grade}: {average:F2}");
 }
 
 /// <summary>
-/// Запрос: выводит количество студентов без долгов.
+/// Выводит количество учеников, у которых нет долгов.
 /// </summary>
+/// <param name="journal">Список всех записей учеников.</param>
 public static void query4(List<StudentRecord> journal)
 {
     var noDebts =
@@ -213,6 +213,7 @@ public static void query4(List<StudentRecord> journal)
     int count = noDebts.Count();
     Console.WriteLine($"Количество учеников без долгов: {count}");
 }
+
 
 
     /// <summary>
