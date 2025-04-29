@@ -14,7 +14,7 @@ public class StudentRecord
     private bool _hasDebts;
 
     /// <summary>
-    /// Конструктор для создания полной записи.
+    /// Создаёт новый экземпляр записи об ученике с проверкой всех входных данных.
     /// </summary>
     public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
     {
@@ -24,6 +24,14 @@ public class StudentRecord
         AverageScore = averageScore;
         HasDebts = hasDebts;
     }
+
+    /// <summary>
+    /// Пустой конструктор необходим для XML-сериализации.
+    /// </summary>
+    public StudentRecord()
+    {
+    }
+
     /// <summary>
     /// Фамилия ученика.
     /// </summary>
@@ -36,6 +44,7 @@ public class StudentRecord
             {
                 throw new ArgumentException("Фамилия не может быть пустой.");
             }
+
             _lastName = value.Trim();
         }
     }
@@ -52,6 +61,7 @@ public class StudentRecord
             {
                 throw new ArgumentException("Имя не может быть пустым.");
             }
+
             _firstName = value.Trim();
         }
     }
@@ -66,14 +76,15 @@ public class StudentRecord
         {
             if (value < 1 || value > 11)
             {
-                throw new ArgumentException("Класс должен быть от 1 до 11.");
+                throw new ArgumentOutOfRangeException(nameof(Grade), "Класс должен быть от 1 до 11.");
             }
+
             _grade = value;
         }
     }
 
     /// <summary>
-    /// Средний балл (0–5).
+    /// Средний балл ученика (0.00–5.00).
     /// </summary>
     public double AverageScore
     {
@@ -82,8 +93,9 @@ public class StudentRecord
         {
             if (value < 0 || value > 5)
             {
-                throw new ArgumentException("Средний балл должен быть от 0 до 5.");
+                throw new ArgumentOutOfRangeException(nameof(AverageScore), "Средний балл должен быть от 0 до 5.");
             }
+
             _averageScore = value;
         }
     }
@@ -98,16 +110,7 @@ public class StudentRecord
     }
 
     /// <summary>
-    /// Пустой конструктор для сериализации.
-    /// </summary>
-    public StudentRecord()
-    {
-    }
-
-    
-
-    /// <summary>
-    /// Форматированное представление записи.
+    /// Возвращает строковое представление записи об ученике.
     /// </summary>
     public override string ToString()
     {
