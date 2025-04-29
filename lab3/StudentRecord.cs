@@ -7,45 +7,94 @@ using System.Xml.Serialization;
 [Serializable]
 public class StudentRecord
 {
+    private string _lastName;
+    private string _firstName;
+    private int _grade;
+    private double _averageScore;
+    private bool _hasDebts;
+
     /// <summary>
     /// Фамилия ученика.
     /// </summary>
-    [XmlElement]
-    public string LastName { get; private set; }
+    public string LastName
+    {
+        get => _lastName;
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Фамилия не может быть пустой.");
+            }
+            _lastName = value.Trim();
+        }
+    }
 
     /// <summary>
     /// Имя ученика.
     /// </summary>
-    [XmlElement]
-    public string FirstName { get; private set; }
+    public string FirstName
+    {
+        get => _firstName;
+        private set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Имя не может быть пустым.");
+            }
+            _firstName = value.Trim();
+        }
+    }
 
     /// <summary>
-    /// Номер класса ученика.
+    /// Класс ученика (1–11).
     /// </summary>
-    [XmlElement]
-    public int Grade { get; private set; }
+    public int Grade
+    {
+        get => _grade;
+        private set
+        {
+            if (value < 1 || value > 11)
+            {
+                throw new ArgumentException("Класс должен быть от 1 до 11.");
+            }
+            _grade = value;
+        }
+    }
 
     /// <summary>
-    /// Средний балл ученика.
+    /// Средний балл (0–5).
     /// </summary>
-    [XmlElement]
-    public double AverageScore { get; private set; }
+    public double AverageScore
+    {
+        get => _averageScore;
+        private set
+        {
+            if (value < 0 || value > 5)
+            {
+                throw new ArgumentException("Средний балл должен быть от 0 до 5.");
+            }
+            _averageScore = value;
+        }
+    }
 
     /// <summary>
     /// Наличие долгов у ученика.
     /// </summary>
-    [XmlElement]
-    public bool HasDebts { get; private set; }
+    public bool HasDebts
+    {
+        get => _hasDebts;
+        private set => _hasDebts = value;
+    }
 
     /// <summary>
-    /// Необходим для десериализации XML.
+    /// Пустой конструктор для сериализации.
     /// </summary>
     public StudentRecord()
     {
     }
 
     /// <summary>
-    /// Создаёт новый экземпляр записи об ученике.
+    /// Конструктор для создания полной записи.
     /// </summary>
     public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
     {
@@ -57,7 +106,7 @@ public class StudentRecord
     }
 
     /// <summary>
-    /// Возвращает строку с информацией об ученике.
+    /// Форматированное представление записи.
     /// </summary>
     public override string ToString()
     {
