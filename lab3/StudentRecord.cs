@@ -14,6 +14,17 @@ public class StudentRecord
     private bool _hasDebts;
 
     /// <summary>
+    /// Конструктор для создания полной записи.
+    /// </summary>
+    public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
+    {
+        LastName = lastName;
+        FirstName = firstName;
+        Grade = grade;
+        AverageScore = averageScore;
+        HasDebts = hasDebts;
+    }
+    /// <summary>
     /// Фамилия ученика.
     /// </summary>
     public string LastName
@@ -93,17 +104,7 @@ public class StudentRecord
     {
     }
 
-    /// <summary>
-    /// Конструктор для создания полной записи.
-    /// </summary>
-    public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
-    {
-        LastName = lastName;
-        FirstName = firstName;
-        Grade = grade;
-        AverageScore = averageScore;
-        HasDebts = hasDebts;
-    }
+    
 
     /// <summary>
     /// Форматированное представление записи.
