@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Serialization;
 
 /// <summary>
 /// Представляет запись об ученике в журнале.
@@ -6,78 +7,57 @@ using System;
 [Serializable]
 public class StudentRecord
 {
-    private string _lastName;
-    private string _firstName;
-    private int _grade;
-    private double _averageScore;
-    private bool _hasDebts;
-
     /// <summary>
     /// Фамилия ученика.
     /// </summary>
-    public string LastName
-    {
-        get { return _lastName; }
-        set { _lastName = value; }
-    }
+    [XmlElement]
+    public string LastName { get; private set; }
 
     /// <summary>
     /// Имя ученика.
     /// </summary>
-    public string FirstName
-    {
-        get { return _firstName; }
-        set { _firstName = value; }
-    }
+    [XmlElement]
+    public string FirstName { get; private set; }
 
     /// <summary>
     /// Номер класса ученика.
     /// </summary>
-    public int Grade
-    {
-        get { return _grade; }
-        set { _grade = value; }
-    }
+    [XmlElement]
+    public int Grade { get; private set; }
 
     /// <summary>
     /// Средний балл ученика.
     /// </summary>
-    public double AverageScore
-    {
-        get { return _averageScore; }
-        set { _averageScore = value; }
-    }
+    [XmlElement]
+    public double AverageScore { get; private set; }
 
     /// <summary>
     /// Наличие долгов у ученика.
     /// </summary>
-    public bool HasDebts
-    {
-        get { return _hasDebts; }
-        set { _hasDebts = value; }
-    }
+    [XmlElement]
+    public bool HasDebts { get; private set; }
 
     /// <summary>
-    /// Пустой конструктор для сериализации.
+    /// Необходим для десериализации XML.
     /// </summary>
     public StudentRecord()
     {
     }
 
     /// <summary>
-    /// Создаёт новый объект записи об ученике.
+    /// Создаёт новый экземпляр записи об ученике.
     /// </summary>
     public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
     {
-        _lastName = lastName;
-        _firstName = firstName;
-        _grade = grade;
-        _averageScore = averageScore;
-        _hasDebts = hasDebts;
+        LastName = lastName;
+        FirstName = firstName;
+        Grade = grade;
+        AverageScore = averageScore;
+        HasDebts = hasDebts;
     }
 
     /// <summary>
-    /// Возвращает строковое представление записи об ученике.
+    /// Возвращает строку с информацией об ученике.
     /// </summary>
     public override string ToString()
     {
