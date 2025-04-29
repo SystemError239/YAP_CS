@@ -16,6 +16,11 @@ public class StudentRecord
     /// <summary>
     /// Создаёт новый экземпляр записи об ученике с проверкой всех входных данных.
     /// </summary>
+    /// <param name="lastName">Фамилия ученика (не пустая строка).</param>
+    /// <param name="firstName">Имя ученика (не пустая строка).</param>
+    /// <param name="grade">Номер класса (от 1 до 11).</param>
+    /// <param name="averageScore">Средний балл (от 0 до 5).</param>
+    /// <param name="hasDebts">Признак наличия долгов.</param>
     public StudentRecord(string lastName, string firstName, int grade, double averageScore, bool hasDebts)
     {
         LastName = lastName;
@@ -112,6 +117,7 @@ public class StudentRecord
     /// <summary>
     /// Возвращает строковое представление записи об ученике.
     /// </summary>
+    /// <returns>Форматированная строка с данными об ученике.</returns>
     public override string ToString()
     {
         return $"{LastName} {FirstName}, класс {Grade}, ср. балл: {AverageScore:F2}, долги: {(HasDebts ? "есть" : "нет")}";
